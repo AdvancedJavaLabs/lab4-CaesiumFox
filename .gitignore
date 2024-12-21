@@ -1,0 +1,14 @@
+.vscode/
+ignore/
+build/
+archive/
+input/
+hadoop-3.4.1/
+*.jar
+
+# IDK why these don't work automatically
+!hadoop-3.4.1/etc/hadoop/core-site.xml
+!hadoop-3.4.1/etc/hadoop/hadoop-env.sh
+!hadoop-3.4.1/etc/hadoop/hdfs-site.xml
+!hadoop-3.4.1/etc/hadoop/mapred-site.xml
+!hadoop-3.4.1/etc/hadoop/yarn-site.xml
