@@ -10,7 +10,7 @@ clean:
 	rm wc.jar
 
 run:
-	./hadoop-3.4.1/bin/hadoop jar wc.jar Main /user/csf/input /user/csf/output
+	./hadoop-3.4.1/bin/hadoop jar wc.jar Main
 
 start:
 	./hadoop-3.4.1/sbin/start-all.sh
@@ -18,5 +18,14 @@ start:
 stop:
 	./hadoop-3.4.1/sbin/stop-all.sh
 
-format:
+format_and_start:
+	./hadoop-3.4.1/sbin/stop-all.sh
 	./hadoop-3.4.1/bin/hadoop namenode -format
+	./hadoop-3.4.1/sbin/start-all.sh
+	./hadoop-3.4.1/bin/hdfs dfs -mkdir /user
+	./hadoop-3.4.1/bin/hdfs dfs -mkdir /user/csf
+	./hadoop-3.4.1/bin/hdfs dfs -mkdir /user/csf/input
+	./hadoop-3.4.1/bin/hdfs dfs -put ./data/*.csv /user/csf/input
+
+show:
+	./hadoop-3.4.1/bin/hdfs dfs -cat output/part-r-*
